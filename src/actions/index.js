@@ -1,5 +1,6 @@
 import * as Types from './ActionTypes';
 
-export const actFetchNewHighlightData = () => ({
-    type: Types.FETCH_NEW_HIGHLIGHT_DATA
+export const actFetchNewHighlightData = (per_page) => ({
+    type: Types.FETCH_NEW_HIGHLIGHT_DATA,
+    per_page
 });

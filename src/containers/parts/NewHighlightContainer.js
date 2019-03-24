@@ -4,13 +4,13 @@ import NewHighlightComponent from '../../components/parts/NewHighlightComponent'
 import {actFetchNewHighlightData} from '../../actions/index';
 
 const mapStateToProps = state => ({
-    data : state.NewHighLightReducers
+    Newhighlight_Data : state.NewHighLightReducers
 });
 
 const mapDispatchToProps = dispatch => {
     return{
-        onFetchNewHighlightData: () => {
-            dispatch(actFetchNewHighlightData())
+        onFetchNewHighlightData: (per_page) => {
+            dispatch(actFetchNewHighlightData(per_page))
         }
     }
 }

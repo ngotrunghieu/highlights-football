@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 //redux
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 //redux saga
 import createSagaMiddleware from 'redux-saga';
@@ -13,10 +13,12 @@ import rootSaga from './sagas/rootSaga';
 import MainComponent from '../src/components/MainComponent';
 import AllReducers from '../src/reducers/index';
 
+// dev tools middleware
+const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const sagaMiddleware = createSagaMiddleware();
 let store = createStore(
     AllReducers
-    , applyMiddleware(sagaMiddleware)
+    , compose(applyMiddleware(sagaMiddleware), reduxDevTools)
     );
 
 

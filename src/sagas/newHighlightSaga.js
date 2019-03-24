@@ -1,18 +1,17 @@
-import {put, takeEvery } from 'redux-saga/effects';
+import {put, takeLatest } from 'redux-saga/effects';
 import * as Types from '../actions/ActionTypes';
 import {Api} from './Api';
 
-function* fetchNewHighlights(){
-    const url = 'posts'
+function* fetchNewHighlights(data){
+    // console.log(data.per_page);
     try{
-        const receivedNewHighlights = yield Api.getNewHighlightsFromApi(url);
-        console.log(receivedNewHighlights);
-        yield put({type: Types.FETCH_NEW_HIGHLIGHT_DATA_SUCCESS}, receivedNewHighlights);
+        const receivedNewHighlights = yield Api.getNewHighlightsFromApi(data.per_page);
+        yield put({type: Types.FETCH_NEW_HIGHLIGHT_DATA_SUCCESS, receivedNewHighlights});
     }catch(error){
         yield put({type: Types.FETCH_NEW_HIGHLIGHT_DATA_ERROR, error});
     }
 }
 
 export function* watchFetchNewHighlights(){
-    yield takeEvery(Types.FETCH_NEW_HIGHLIGHT_DATA, fetchNewHighlights);
+    yield takeLatest(Types.FETCH_NEW_HIGHLIGHT_DATA, fetchNewHighlights);
 }
