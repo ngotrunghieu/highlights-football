@@ -3,7 +3,6 @@ import * as Types from '../actions/ActionTypes';
 import {Api} from './Api';
 
 function* fetchNewHighlights(data){
-    // console.log(data.per_page);
     try{
         const receivedNewHighlights = yield Api.getNewHighlightsFromApi(data.per_page);
         yield put({type: Types.FETCH_NEW_HIGHLIGHT_DATA_SUCCESS, receivedNewHighlights});

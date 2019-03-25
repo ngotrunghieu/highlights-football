@@ -1,5 +1,4 @@
-const url = 'https://highlightsfootball.com/wp-json/wp/v2/posts';
-
+import {MAIN_URL} from '../constants';
 
 async function fetchDataJson(url) {
     let response;
@@ -14,7 +13,7 @@ async function fetchDataJson(url) {
 }
 
 function* getNewHighlightsFromApi(per_page){
-    const new_url = `${url}?per_page=${per_page}`;
+    const new_url = `${MAIN_URL}posts?_embed&per_page=${per_page}`;
     const response = yield fetchDataJson(new_url);
     return response;
 }

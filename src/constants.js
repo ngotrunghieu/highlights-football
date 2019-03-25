@@ -1,0 +1,1 @@
+export const MAIN_URL = 'https://highlightsfootball.com/wp-json/wp/v2/';

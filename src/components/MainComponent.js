@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import routes from '../routes';
 import HeaderComponent from './headers/HeaderComponent';
+import FooterComponent from './FooterComponent';
 
 class MainComponent extends Component {
     render() {
@@ -26,6 +27,7 @@ class MainComponent extends Component {
                             {showContentMenus(routes)}
                         </Switch>
                     </div>
+                    <FooterComponent/>
                 </div>
             </Router>
         )

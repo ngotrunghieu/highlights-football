@@ -12,9 +12,9 @@ class NewHighlightItemComponent extends Component {
                     <div key={item} className="col-sm-4" style={{ paddingRight: '0', marginBottom: '15px' }}>
                         <Link className="card-link" to="">
                             <div className="card">
-                                <img className="card-img-top" src="" alt="Card image cap" />
+                                <img className="card-img-top" src={data._embedded["wp:featuredmedia"][0].media_details.sizes.td_324x160.source_url} alt="Card image cap" />
                                 <div className="card-block" style={{ margin: "5px" }}>
-                                    <h6 className="card-title" style={{ color: 'rgb(66, 103, 178)' }}>{data.title.rendered}</h6>
+                                    <h6 className="card-title" style={{ color: 'rgb(66, 103, 178)' }}>{common.formatTitle(data.title.rendered)}</h6>
                                     <p className="card-text">
                                         <small className="text-muted">{common.formatDate(data.date)}</small>
                                     </p>
